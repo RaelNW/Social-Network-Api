@@ -1,36 +1,37 @@
-const mangoose = require('mongoose');
-const  userSchema = new mangoose.Schema({
-    username: {
-        type: String,
-        required: true,
-        unique: true,
-        trim: true,
-        minlength: 4
+const mangoose = require("mongoose");
+
+const userSchema = new mangoose.Schema({
+  username: {
+    type: String,
+    unique: true,
+    required: true,
+    trim: true,
+  },
+  email: {
+    type: String,
+    unique: true,
+    required: true,
+  },
+  thoughts: [
+    {
+      type: mangoose.Schema.Types.ObjectId,
+      ref: "Thought",
     },
-    email: {
-        type: String,
-        required: true,
-        unique: true,
+  ],
+  friends: [
+    {
+      type: mangoose.Schema.Types.ObjectId,
+      ref: "User",
     },
-    thoughts: [
-        {
-            type: mangoose.Schema.Types.ObjectId,
-            ref: 'Thought'
-        }
-    ],
-    friends: [
-        {
-            type: mangoose.Schema.Types.ObjectId,
-            ref: 'User'
-        }
-    ],
+  ],
 });
 
-userSchema.virtual('friendCount').get(function () {
-    return this.friends.length;
-}
-);
+//add virtuals friendsCount
 
-const User = mangoose.model('User', userSchema);
+userSchema.virtual("friendsCount").get(function () {
+  return this.friends.length;
+});
 
-module.exports = User;
+const User = mangoose.model("User", userSchema);
+
+model.exports = User;
