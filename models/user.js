@@ -11,6 +11,8 @@ const userSchema = new mangoose.Schema({
     type: String,
     unique: true,
     required: true,
+    //email validation
+    match: [/.+\@.+\..+/, "Please enter a valid e-mail address"],
   },
   thoughts: [
     {
