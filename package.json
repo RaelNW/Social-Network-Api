@@ -1,0 +1,16 @@
+{
+  "name": "social-network-api",
+  "version": "1.0.0",
+  "description": " API  using a NoSQL database, designed to  manage data and user interactions.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^7.0.2"
+  }
+}
