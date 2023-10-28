@@ -1,4 +1,5 @@
 const mangoose = require("mongoose");
+const dateFormat = require("../utils/dateFormat");
 
 const thoughtSchema = new mangoose.Schema({
   thoughtText: {
@@ -30,4 +31,4 @@ thoughtSchema.virtual("reactionCount").get(function () {
 });
 const Thought = mangoose.model("Thought", thoughtSchema);
 
-model.exports = Thought
+module.exports = Thought;

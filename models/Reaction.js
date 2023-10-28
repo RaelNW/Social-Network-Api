@@ -1,4 +1,5 @@
 const mangoose = require('mongoose');
+const dateFormat = require('../utils/dateFormat');
 
 const reactionSchema = new mangoose.Schema({
     reactionId: {
@@ -24,4 +25,4 @@ const reactionSchema = new mangoose.Schema({
 
 const Reaction = mongoose.model('Reaction', reactionSchema);
 
-model.exports = Reaction;
+module.exports = Reaction;

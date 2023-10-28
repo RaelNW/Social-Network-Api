@@ -36,4 +36,4 @@ userSchema.virtual("friendsCount").get(function () {
 
 const User = mangoose.model("User", userSchema);
 
-model.exports = User;
+module.exports = User;
