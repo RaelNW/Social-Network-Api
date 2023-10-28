@@ -30,4 +30,4 @@ thoughtSchema.virtual("reactionCount").get(function () {
 });
 const Thought = mangoose.model("Thought", thoughtSchema);
 
-model.exports = Thought;
+model.exports = Thought

@@ -22,4 +22,6 @@ const reactionSchema = new mangoose.Schema({
     },
 });
 
-model.exports = reactionSchema;
+const Reaction = mongoose.model('Reaction', reactionSchema);
+
+model.exports = Reaction;
