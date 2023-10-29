@@ -3,7 +3,7 @@ const apiRoutes = require('./api');
 
 router.use('/api', apiRoutes);
 
-// If no API routes are hit, send the React app
+// If no API routes are hit, give 404 error
 router.use((req, res) => {
     res.status(404).send('<h1>404 Error!</h1>');
 }
