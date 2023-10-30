@@ -1,6 +1,7 @@
-const { User, Thought } = require("../models");
+const { User, Thought, Reaction } = require("../models");
+const {types} = require("mongoose");
 
-module.exports = {
+const thoughtController = {
   //get all thoughts
   getThoughts(req, res) {
     Thought.find({})
@@ -111,3 +112,5 @@ module.exports = {
       });
   },
 };
+
+module.exports = thoughtController;

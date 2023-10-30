@@ -1,6 +1,6 @@
-const mangoose = require("mongoose");
+const mongoose = require("mongoose");
 
-const userSchema = new mangoose.Schema({
+const userSchema = new mongoose.Schema({
   username: {
     type: String,
     unique: true,
@@ -16,24 +16,31 @@ const userSchema = new mangoose.Schema({
   },
   thoughts: [
     {
-      type: mangoose.Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "Thought",
     },
   ],
   friends: [
     {
-      type: mangoose.Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
   ],
-});
-
+},
+// Tell schema that it can use virtuals
+{
+  toJSON: {
+    virtuals: true,
+  },
+  id: false,
+}
+);
 //add virtuals friendsCount
 
 userSchema.virtual("friendsCount").get(function () {
   return this.friends.length;
 });
 
-const User = mangoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;

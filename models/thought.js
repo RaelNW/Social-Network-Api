@@ -1,7 +1,7 @@
-const mangoose = require("mongoose");
+const mongoose = require("mongoose");
 const dateFormat = require("../utils/dateFormat");
 
-const thoughtSchema = new mangoose.Schema({
+const thoughtSchema = new mongoose.Schema({
   thoughtText: {
     type: String,
     required: true,
@@ -19,8 +19,9 @@ const thoughtSchema = new mangoose.Schema({
     ref: "User",
   },
   reactions: [
+    //array of nested documents created with the reactionSchema
     {
-      type: mangoose.Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "Reaction",
     },
   ],
@@ -29,6 +30,6 @@ const thoughtSchema = new mangoose.Schema({
 thoughtSchema.virtual("reactionCount").get(function () {
   return this.reactions.length;
 });
-const Thought = mangoose.model("Thought", thoughtSchema);
+const Thought = mongoose.model("Thought", thoughtSchema);
 
 module.exports = Thought;

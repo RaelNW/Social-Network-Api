@@ -36,7 +36,7 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 
 ## Installation
 
-1. Clone the repository: `git clone `
+1. Clone the repository: `git clone git@github.com:RaelNW/Social-Network-Api.git `
 2. Navigate to the project directory:
 3. Install dependencies: `npm install`
 
@@ -54,6 +54,34 @@ The project relies on the following  dependencies:
 2. express: A framework for Node.js.
 3. mongoose: This is a MongoDB object modeling tool. 
 
+## Available Endpoints
+
+1. `/api/thoughts`  
+   - GET: Get thoughts
+   - POST: Create thought
+
+2. `/api/thoughts/:id`  
+   - GET: Get thought by ID
+
+3. `/api/thoughts/:thoughtId/reactions`  
+   - POST: Add reaction
+
+4. `/api/thoughts/:thoughtId/reactions/:reactionId`  
+   - DELETE: Remove reaction
+
+5. `/api/users`
+   - GET: Get all users
+   - POST: Create user
+
+6. `/api/users/:id`
+   - GET: Get user by ID
+   - PUT: Update user
+   - DELETE: Delete user
+
+7. `/api/users/:id/friends/:friendId`
+   - POST: Add friend
+   - DELETE: Remove friend
+
 ## Credits
 
 For inquiries, please contact [Rael Wanjala].
@@ -62,6 +90,7 @@ For inquiries, please contact [Rael Wanjala].
 
 
 ## Link to Repo
+https://github.com/RaelNW/Social-Network-Api.git
 
 
 ## Additional Support
