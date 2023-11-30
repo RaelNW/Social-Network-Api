@@ -1,4 +1,5 @@
 const { User, Thought, Reaction } = require("../models");
+
 const {types} = require("mongoose");
 
 const thoughtController = {

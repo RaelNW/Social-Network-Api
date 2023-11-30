@@ -1,10 +1,9 @@
 //require all packages needed
-const express = require('express');
-const db = require('./config/connection');
-const routes = require('./routes');
-const data = require('./utils/seed');
+const express = require("express");
+const db = require("./config/connection");
+const routes = require("./routes");
 
-const cwd = process.cwd();
+
 //set up port and express app
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -14,9 +13,8 @@ app.use(express.json());
 //use routes
 app.use(routes);
 
-db.once('open', () => {
-    app.listen(PORT, () => {
-        console.log(`API server running on http://localhost:${PORT}`);
-        console.log(`cwd: ${cwd}`);
-    });
-    });
+db.once("open", () => {
+  app.listen(PORT, () => {
+    console.log(`API server running on http://localhost:${PORT}`);
+  });
+});

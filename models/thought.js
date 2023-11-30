@@ -1,7 +1,8 @@
-const mongoose = require("mongoose");
+const {Schema, model} = require("mongoose");
+const reactionSchema = require("./Reaction");
 const dateFormat = require("../utils/dateFormat");
 
-const thoughtSchema = new mongoose.Schema({
+const thoughtSchema = new Schema({
   thoughtText: {
     type: String,
     required: true,
@@ -16,20 +17,13 @@ const thoughtSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
-    ref: "User",
   },
-  reactions: [
-    //array of nested documents created with the reactionSchema
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Reaction",
-    },
-  ],
+  reactions: [reactionSchema],
 });
 //add virtuals reactionCount
 thoughtSchema.virtual("reactionCount").get(function () {
   return this.reactions.length;
 });
-const Thought = mongoose.model("Thought", thoughtSchema);
+const Thought = model("Thought", thoughtSchema);
 
 module.exports = Thought;
